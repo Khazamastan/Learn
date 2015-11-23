@@ -1,0 +1,52 @@
+<script src="jquery-1.11.2.js"></script>
+<select class="year">
+</select>
+<select class="month">
+</select>
+<select class="day">
+</select>
+<script>
+$(function(){
+	for(i=1945;i<=2015;i++){
+		$('.year').append('<option value="'+i+'">'+i+'</option');
+	}
+});
+var month = {
+  jan :31,
+  feb : 28,
+  mar :31,
+  apr :30,
+  may :31,
+  june :30,
+  jully:31,
+  aug:31,
+  sep:30,
+  oct:31,
+  nov:30,
+  dec:31
+};
+$(document).on('change','.year',function(){
+     var year = parseInt($(this).val());
+     console.log(year) 
+     var monthoptions;
+     month.feb = (year%4 == 0) ? 29 : 28;
+     var m=1;
+     $.each(month,function(idx,val){
+            monthoptions+='<option value="'+m+'" data-days='+idx+' >'+idx+'</option>';
+	    m++;
+      });
+       $('.month').empty().append(monthoptions);
+  });
+  
+$(document).on('change','.month',function(){
+   var selmnth = $(this).find('option:selected').attr('data-days');
+   console.log(selmnth)
+   var days = parseInt(month[selmnth]);
+   console.log(days)
+   var daysoptions;
+   for(i=1;i<=days;i++){
+     daysoptions+='<option value="'+i+'">'+i+'</option>'
+   }
+  $('.day').empty().append(daysoptions);
+});
+</script>

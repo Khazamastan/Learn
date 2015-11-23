@@ -1,0 +1,8 @@
+<script src="jquery-1.11.2.js"></script>
+<a href="click">Click me</a>
+<script>
+$.fn.greenify = function(){
+	this.css('color','green');
+}
+$('a).greenify();
+</script>

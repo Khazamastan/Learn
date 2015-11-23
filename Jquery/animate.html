@@ -1,0 +1,19 @@
+<script src="jquery-1.11.2.js"></script>
+<div id="clickme">
+  Click here
+</div>
+<img id="book" src="snap.png" alt="" width="1000" height="1123px"
+  style="position: relative; left: 10px;">
+
+<script>
+$( "#clickme" ).click(function() {
+  $( "#book" ).animate({
+    opacity: 0.25,
+    height: "toggle",
+    width: "toggle",
+  }, 1000, function() {
+    // Animation complete.
+    $(this).css('opacity','1');
+  });
+});
+</script>

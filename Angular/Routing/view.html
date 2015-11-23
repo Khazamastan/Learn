@@ -1,0 +1,25 @@
+<div class="container">
+        <div class="col-md-12">
+            Filter By : <!--<select name="filterBy" ng-model="filterBy">
+                <option value="Graphic Desing">Graphic Design</option>
+                <option value="Web Desing">Web Design</option>
+                <option value="Photo Desing">Photo Design</option>
+                <option value="Product Desing">Product Design</option>
+            </select>-->
+            <input type="text" ng-model="filterBy">
+            <br>
+            <br>
+        </div>
+        <div class="col-md-6 card" ng-repeat="book in All | filter:filterBy">
+            <div class="col-md-4 media-img">
+                <img src="{{book.url}}" class="img-responsive">
+            </div>
+            <div class="media-post col-md-8 col-lg-height bgwhite">
+                <h3 class="animated fadeIn delay03"><a href="/en/portfolio/move-on-firenze/" rel="bookmark">
+            {{book.name}}            </a></h3>
+                <h6 class="animated fadeIn delay05"><span class="Graphic Design">{{book.desc}}</span></h6> 
+                <a href="#edit/{{book.id}}"><span style="position:absolute;top:5px;right:5px"><i class="fa fa-pencil"></i>
+                </span></a>
+            </div>
+        </div>
+</div>

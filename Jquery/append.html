@@ -1,0 +1,31 @@
+<script src="jquery-1.11.2.js"></script>
+<div class="app">
+                                        <table class="checklist_appnd">
+                                            <thead>
+                                                <tr>
+                                                    <th><span class="header_temp">Item</span></th>
+                                                    <th><button class="btn_add btn btn-success" type="button">+</button></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="appendme">
+                                                <tr >
+                                               
+                                                
+                                                </tr>
+                                            
+                                            </tbody>
+                                        </table>
+
+
+
+                                         <script>
+                                                $(document).ready(function(){
+       $('.btn_add').click(function(){
+           $('.appendme').append('<tr class="newrow"><td><input type="text"> <button class="btn btn-danger close1" id="close1" type="button">x</button></td></tr>');
+           $('.close1').click(function(){
+
+           	$(this).closest('.newrow').hide();
+           });
+       });
+       
+   });</script>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+a.test {
+    font-weight: bold;
+}
+</style>
+    <meta charset="utf-8">
+    <title>Demo</title>
+</head>
+<body>
+    <span id="msg"></span><br>
+    <a class="Af" href="#" id="A">A</a>
+    <a class="Af" href="#" id="B">B</a>
+    <a class="Af" href="#" id="C">C</a>
+    <a class="Af" href="#" id="D">D</a>
+    <br><br>
+    <a class="C list">jQuery-C<br></a>
+    <a class="B list">jQuery-B<br></a>
+    <a class="A list">jQuery-A<br></a>
+    <a class="C list">jQuery-C<br></a>
+    <a class="D list">jQuery-D<br></a>
+    <a class="A list">jQuery-A<br></a>
+    <a class="B list">jQuery-B<br></a>
+    <a class="D list">jQuery-D</a>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+ $('.list').hide();
+    $(function() {
+        $( ".Af" ).click(function( e ) {
+            $('.Af').removeClass('test');
+            $('.list').hide();
+            var id=$(this).attr('id');
+            $('#msg').html( "You have selected " +id );
+            $(this).addClass('test');
+            $( "a" ).filter( '.'+id).show();
+            
+            //$(this).fadeOut("slow");
+            //$(this).fadeIn("slow");
+            event.preventDefault();
+        });
+    });
+ 
+    </script>
+</body>
+</html>

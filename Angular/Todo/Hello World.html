@@ -1,0 +1,95 @@
+<!doctype html>
+    <html ng-app="toDoApp">
+      <head>
+<link rel="stylesheet" href="bootstrap.min.css">
+<script src="angular.min.js"></script>
+<script src="angular-route.min.js"></script>
+<script src="controller.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+	#input{
+		height:40px;
+		line-height:40px;
+		border-radius:0px;
+		font-size:18px;
+		border:0px;
+		/*border-bottom:1px solid lightgray;*/
+		
+	}
+	.toDo:hover{
+		background:#f0f0f0;	
+	}
+	.close{
+		line-height:40px;
+		}
+	.close:hover{
+		color: red !important;
+		}
+</style>
+</head>
+      <body  ng-controller="toDoController as toDo" class="container">
+        <div class="col-md-6 col-md-offset-3" style="margin-top:200px;border:1px solid lightgray;">
+	  <div class="row" style="height:40px;line-height:40px;font-size:18px;color:gray">
+	  <div class="col-md-1"><input type="checkbox" value="checked" ng-model="check" ng-checked="checkAll()"></div>
+	  <div class="col-md-10"><input type="text" class="form-control" ng-model="newToDo.name" ng-keyup="$event.keyCode == 13 ? addToDo() : null" placeholder="Enter a name here" id="input"></div>
+	  <div class="col-md-1 text-center close"> <span class="close" ng-click="deleteAll()"> x</span> </div>
+	  </div>
+	  <div class="row toDo" ng-repeat="task in toDoList" style="height:40px;line-height:40px;font-size:18px;color:gray" ng-show="task.active">
+	  <div class="col-md-1"><input type="checkbox" value="{{task.id}}" ng-checked="check" ng-click="setinactive(task.id)" ></div>
+	  <div class="col-md-10">{{task.name}}</div>
+	  <div class="col-md-1 text-center"> <span class="close" ng-click="deleteTask(task.id)"> x</span> </div>
+	  </div>
+	  <br>
+	  <div class="row">
+      <div class="col-md-3">{{toDoList.length}} item(s) left</div>
+      <div class="col-md-1"><button class="btn btn-default btn-sm" ng-click="showAll()">All</button></div>
+      <div class="col-md-2"><button class="btn btn-default btn-sm">Active</button></div>
+      <div class="col-md-1"><button class="btn btn-default btn-sm">Completed</button></div>
+	  </div><br>
+        </div>
+      </body>
+
+<script>
+var app = angular.module('toDoApp', []);
+var $toDoList = [{id: 0, name : 'firstToDo', active : true}];
+app.controller('toDoController', function($scope) {
+	$scope.toDoList = $toDoList;
+	$scope.newToDo = {id: 0, name : ''};
+	$scope.addToDo = function(){
+		$scope.newToDo.id = $toDoList.length;
+		$scope.newToDo.active = true;
+		$toDoList.push($scope.newToDo);
+		$scope.newToDo = '';
+	};
+	$scope.deleteTask = function(index){
+			var i =0;
+			$toDoList.forEach(function(Obj){
+				if(Obj.id == index){
+					$toDoList.splice(i,1);
+				}
+				i++;
+			});
+			}
+	$scope.deleteAll = function () {
+            $toDoList.length = 0;
+	}
+	$scope.setinactive = function (index) {
+	   var i =0;
+		$toDoList.forEach(function(Obj){
+	                 	if(Obj.id == index){
+				           	if($toDoList[i].active == false){
+				           	     $toDoList[i].active = true;
+				           	} else{
+				           	     $toDoList[i].active = false
+				           	 }
+				           }
+				          i++;
+				 });
+				 console.log(JSON.stringify($toDoList));
+      };      
+});
+</script>
+
+</html>

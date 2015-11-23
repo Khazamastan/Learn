@@ -1,0 +1,45 @@
+<!doctype html>
+    <html ng-app="project">
+      <head>
+        <script src="angular.min.js"></script>
+        <script src="controller.js"></script>
+        <link rel="stylesheet" media="screen" href="styles.css"/>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+          <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      </head>
+      <body class="body">
+          <h1> Projects</h1>
+          <div ng-controller="projectListController as project">
+        <div  ng-show="project.viewitem">      
+        <div>
+          <input class="searchbox form-control" type="text" ng-model="searchText" placeholder="Enter a name here" >
+        </div><br>
+          <table width="100%">
+              <thead>
+              <tr>
+              <th>S.No</th><th>Name</th><th>Desc</th><th><i class="fa fa-plus-circle" ng-click="project.new()"></i></th>
+              </tr>
+                  </thead>
+              <tbody>
+              <tr ng-repeat="item in project.items | filter:searchText">
+              <td>{{item.id}}</td><td><b>{{item.name}}</b></td><td>{{item.desc}}</td><td><i class="fa fa-pencil-square" id="{{item.id}}" ng-click="project.edit(item.id)"></i></td>
+              </tr>
+                  </tbody>
+              </table>
+              </div>
+              <div class="Newitem" ng-show="project.newitem">
+                <lable><b>Id</b></lable><br><input type="text" class="searchbox form-control" ng-model="project.newproject.id"><br>
+                <lable><b>Name</b></lable><br><input type="text" class="searchbox form-control" ng-model="project.newproject.name"><br>
+                <lable><b>Description</b></lable><br><input type="text" class="searchbox form-control" ng-model="project.newproject.desc"><br><br>
+                  <button type="button" class="btn btn-default btn-sm" ng-click="project.showList()">cancle</button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button"  class="btn btn-primary btn-sm" ng-click="project.save()">save</button>&nbsp;&nbsp;&nbsp;<button  class="btn btn-danger btn-sm" type="button" ng-click="project.delete(project.newproject.id)">delete</button>
+              </div>
+          </div>
+      </body>
+</html>
+
+

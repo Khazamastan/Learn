@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<script src="jquery-1.11.2.js"></script>
+<body>
+   
+<div class="border">
+   <table style="width:50%">
+     <tr class="dsbl">
+       <td></td>
+       <td>Jill</td>
+       <td>Smith</td> 
+       <td>50</td>
+     </tr>
+     <tr class="dsbl">
+       <td><input type="checkbox" class="enbl"></td>   
+       <td><input type="text"/></td>
+       <td><select><option>1</option><option>2</option><option>3</option></select></td> 
+       <td>94</td>
+     </tr>
+      <tr class="dsbl">
+       <td><input type="checkbox" class="enbl"></td>   
+       <td><input type="text"/></td>
+       <td><select><option>1</option><option>2</option><option>3</option></select></td> 
+       <td>94</td>
+     </tr>
+      <tr class="dsbl">
+       <td><input type="checkbox" class="enbl"></td>   
+       <td><input type="text"/></td>
+       <td><select><option>1</option><option>2</option><option>3</option></select></td> 
+       <td>94</td>
+     </tr>    
+      <tr class="dsbl">
+       <td><input type="checkbox" class="enbl"></td>   
+       <td><input type="text"/></td>
+       <td><select><option>1</option><option>2</option><option>3</option></select></td> 
+       <td>94</td>
+     </tr>
+      <tr class="dsbl">
+       <td><input type="checkbox" class="enbl"></td>   
+       <td><input type="text"/></td>
+       <td><select><option>1</option><option>2</option><option>3</option></select></td> 
+       <td>94</td>
+     </tr>    
+   </table>
+</div>
+<style>
+
+   
+</style>    
+<script>
+$(document).ready(function() {
+
+ $(".enbl").click(function(){
+                if($(this).is(":checked")){
+                   alert("hi")
+                    $(this).closest("tr").find('input').attr('disabled','true');
+                }else{
+                    $(this).closest(".bgg").css({"background":"none","color":"#333"});
+                }
+            });
+}); 
+  
+});    
+</script>    
+</body>
+</html>

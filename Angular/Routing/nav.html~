@@ -1,0 +1,23 @@
+<div class="container-fluid" style="background:rgb(192, 83, 41) none repeat scroll 0% 0%;color:white;" ng-controller="userController as user">
+        <div class="col-md-4">
+            <h2 style="margin-top:8px">Library Management {{loggedin}}</h2>
+        </div>
+        <div class="col-md-4"><br>
+            <span class="links">Library : <a href="#"> Home </a> | <a href="#add"> Add Book </a> | <a href="#view"> View Books </a> | <a href="#users"> Manage Users </a></span>
+        </div>
+        <div class="col-md-4">
+             <div class="dropdown pull-right" style="margin-top:8px">
+                  <span ng-hide="loggedin">
+                      <a href="#login" style="color:white"> Login </a>&nbsp;
+                      <a href="#signup" style="color:white"> Sign Up </a>
+                  </span>
+                  <button class="btn btn-link dropdown-toggle" style="color:white;" type="button" data-toggle="dropdown"  ng-show="loggedin"> Profile
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Ordered Books</a></li>
+                    <li><a href="#">Logout</a></li>
+                  </ul>
+                </div>
+        </div>
+    </div>

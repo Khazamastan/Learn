@@ -1,0 +1,11 @@
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+<button type="button" style="position:relative;left:400px;top:400px;">Btn</button>
+<script>
+$(function(){
+	$('button').animate({
+    left: "-=200",
+    top: "-=200"
+  }, 1000);
+})
+</script>

@@ -1,0 +1,7 @@
+
+.clip-polygon {
+          
+          
+          -webkit-clip-path: url("#clip-svg-demo");
+          clip-path: url("#clip-svg-demo");
+}
